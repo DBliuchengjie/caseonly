@@ -1,0 +1,216 @@
+/*----------------------------banner----------------------------------------*/
+.banner{
+    width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    overflow: hidden;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #838383;
+}
+.banner .bannerPic{
+    display: block;
+    position: absolute;
+    width: 100%;
+}
+.banner .bannerPic img{
+    width: 100%;
+}
+.banner .prev,.banner .next{
+    position: absolute;
+    display: block;
+    width: 41px;
+    height: 69px;
+}
+.banner .prev{
+    top: 170px;
+    background: url("../img/prev2.png") no-repeat center center;
+}
+.banner .prev:hover{
+    background:url("../img/prev2hover.png") no-repeat center center #fff;
+}
+.banner .next{
+    top: 170px;
+    right: 0px;
+    background: url("../img/next2.png") no-repeat center center;
+}
+.banner .next:hover{
+    background:url("../img/next2hover.png") no-repeat center center #fff;
+}
+.banner>ul{
+    float: right;
+    margin-top: 432px;
+    overflow: hidden;
+}
+.banner>ul>li{
+    width: 16px;
+    text-align: center;
+    background: #838383;
+    float: left;
+    margin: 0 5px;
+}
+.banner>ul>li:hover{
+    background: #ee910d;
+}
+/*----------------------------shopDetail----------------------------------------*/
+.shopDetail{
+    width: 1200px;
+    overflow: hidden;
+    margin: 0 auto;
+    position: absolute;
+    background: #ffffff;
+    display: none;
+}
+.shopDetail>a{
+    float: left;
+    margin: 20px 0 0 50px;
+}
+.shopDetail>a img{
+    width: 240px;
+}
+.shopDetail>ul{
+    float: left;
+    margin: 20px 0 0 100px;
+    font-size: 18px;
+}
+.shopDetail>ul>li:first-child{
+    font-size: 24px;
+    margin: 0 0 20px 0;
+}
+.shopDetail>ul>li>a:hover{
+    color: #ff4a00;
+}
+h2{
+    width: 1200px;
+    margin: 20px auto 20px;
+}
+/*----------------------------designerDetail----------------------------------------*/
+.designer{
+    width: 1200px;
+    overflow: hidden;
+    margin: 0 auto;
+    position: absolute;
+    background: #ffffff;
+    display: none;
+}
+.designer>a{
+    float: left;
+    margin: 20px 0 0 50px;
+}
+.designer>a img{
+    width: 240px;
+}
+.designer .design-r{
+    float: left;
+    margin: 20px 0 0 100px;
+}
+.designer .design-r p{
+    font-size: 22px;
+    line-height: 22px;
+}
+.designer .design-r div{
+    margin: 30px 0;
+}
+.designer .design-r a{
+    display: block;
+    width: 148px;
+    height: 38px;
+    background: #ff4a00;
+    color: #ffffff;
+    text-align: center;
+    line-height: 38px;
+}
+.designer .design-r a:hover{
+    color: #000;
+    border: 1px solid #ff4a00;
+    background: #ffffff;
+    text-decoration: none;
+}
+    /*----------------------------chooseList----------------------------------------*/
+.chooseList .container{
+    width: 1200px;
+}
+.chooseList .row{
+    border: 1px solid #838383;
+}
+.chooseList .row:not(:first-child){
+    border-top: none;
+}
+.chooseList .col-md-2{
+    height: 220px;
+}
+.chooseList .col-md-2:first-child{
+    font-size: 24px;
+    text-align: center;
+    line-height: 220px;
+}
+.chooseList .col-md-2:not(:first-child){
+    padding-top: 30px;
+    border-left: 1px solid #838383;
+}
+.chooseList .col-md-2 a{
+    display: block;
+    text-align: center;
+    font-size: 14px;
+}
+.chooseList .col-md-2 a:hover{
+    text-decoration: none;
+    color: #ff4a00;
+}
+.chooseList .col-md-2 img{
+    width: 136px;
+    height: 136px;
+    display: block;
+    margin: 0 auto 20px;
+}
+/*----------------------------download----------------------------------------*/
+.download{
+    width: 1200px;
+    margin: 0 auto;
+    border: 1px solid #838383;
+    overflow: hidden;
+    padding: 20px 100px;
+}
+.download .leftPic{
+    float: left;
+}
+.download .right{
+    float: left;
+    margin: 100px 0 0 150px;
+    text-align: center;
+}
+.download .right .p1{
+    color:#ff4a00;
+    text-align: center;
+}
+.download .right .p2{
+    text-align: center;
+}
+/*----------------------------showWall----------------------------------------*/
+.showWall{
+    width: 1200px;
+    margin: 0 auto;
+    background: #f2f2f2;
+    padding-bottom: 20px;
+}
+.showWall p{
+    text-align: center;
+    font-size: 18px;
+    font-weight: 600;
+}
+.showWall .p1{
+    font-size: 26px;
+    font-weight: 500;
+}
+.showWall .col-md-2 img{
+    width: 195px;
+    height: 200px;
+}
+.showWall .col-md-2{
+    width: 195px;
+    height: 200px;
+    margin: 10px 10px;
+    overflow: hidden;
+}
+.showWall .col-md-2:first-child{
+    margin: 10px 10px 10px 30px;
+}

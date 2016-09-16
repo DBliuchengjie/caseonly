@@ -1,0 +1,432 @@
+div,body,h1,h2,h3,h4,h5,h6,ul,ol,li,dl,form{
+    margin: 0;
+    padding: 0;
+}
+li{
+    list-style: none;
+}
+a{
+    color: #000;
+    text-decoration: none;
+}
+/*-----------------------header---------------------------*/
+.header{
+    width: 1200px;
+    margin: 20px auto;
+    overflow: hidden;
+}
+.header h1{
+    width: 300px;
+    height: 50px;
+    float: left;
+    overflow: hidden;
+    margin-left: 30px;
+}
+.header h1 a{
+    display: block;
+    width: 300px;
+    height: 50px;
+    background: url("../img/logo.png");
+    background-size: 100% 100%;
+}
+.header form{
+    margin-left: 30px;
+    width: 440px;
+    height: 38px;
+    float: left;
+}
+.header form .text{
+    height: 40px;
+    width: 378px;
+    line-height: 38px;
+    border: 1px solid #dfdfdf;
+    padding-left: 20px;
+    float: left;
+}
+.header form .search{
+    width: 40px;
+    height: 40px;
+    float: left;
+    border: 0px;
+}
+.header .shopCar{
+    margin-left: 30px;
+    display: block;
+    float: left;
+    width: 116px;
+    height: 40px;
+    background: #ffdb3d;
+    text-align: center;
+    line-height: 40px;
+}
+.header .shopCar:hover{
+    border: 1px solid #ff4a00;
+    background: #ffffff;
+    width: 116px;
+    height: 38px;
+    text-decoration: none;
+}
+.header .shopCar .text{
+    float: left;
+}
+.header .logReg{
+    margin-left: 30px;
+    float: left;
+    width: 90px;
+    height: 25px;
+    padding-top: 15px;
+    padding-left: 10px;
+}
+.header .logReg a:hover{
+    color: #ff4a00;
+    text-decoration: underline;
+}
+/*----------------------------navBox----------------------------------------*/
+.navBox{
+    height: 44px;
+    background: #000;
+}
+.nav{
+    width: 1200px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+.nav a{
+    float: left;
+    color: #ffffff;
+    padding: 0 40px;
+    line-height: 44px;
+}
+.nav a:hover{
+    background: #666666;
+    text-decoration: none;
+}
+/*----------------------------shopDetail----------------------------------------*/
+.shopDetail{
+    width: 1200px;
+    overflow: hidden;
+    margin: 0 auto;
+    position: absolute;
+    z-index: 9999;
+    background: #ffffff;
+    display: none;
+}
+.shopDetail>a{
+    float: left;
+    margin: 20px 0 0 50px;
+}
+.shopDetail>a img{
+    width: 240px;
+}
+.shopDetail>ul{
+    float: left;
+    margin: 20px 0 0 100px;
+    font-size: 18px;
+}
+.shopDetail>ul>li:first-child{
+    font-size: 24px;
+    margin: 0 0 20px 0;
+}
+.shopDetail>ul>li>a:hover{
+    color: #ff4a00;
+}
+h2{
+    width: 1200px;
+    margin: 20px auto 20px;
+}
+/*----------------------------designerDetail----------------------------------------*/
+.designer{
+    width: 1200px;
+    overflow: hidden;
+    margin: 0 auto;
+    position: absolute;
+    z-index: 9999;
+    background: #ffffff;
+    display: none;
+}
+.designer>a{
+    float: left;
+    margin: 20px 0 0 50px;
+}
+.designer>a img{
+    width: 240px;
+}
+.designer .design-r{
+    float: left;
+    margin: 20px 0 0 100px;
+}
+.designer .design-r p{
+    font-size: 22px;
+    line-height: 22px;
+}
+.designer .design-r div{
+    margin: 30px 0;
+}
+.designer .design-r a{
+    display: block;
+    width: 148px;
+    height: 38px;
+    background: #ff4a00;
+    color: #ffffff;
+    text-align: center;
+    line-height: 38px;
+}
+.designer .design-r a:hover{
+    color: #000;
+    border: 1px solid #ff4a00;
+    background: #ffffff;
+    text-decoration: none;
+}
+/*----------------------------links----------------------------------------*/
+.links{
+    background: #f2f2f2;
+    padding-bottom: 30px;
+    margin-top: 30px;
+}
+.link{
+    width: 1200px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+.link ul{
+    float: left;
+    margin: 50px 0 0 50px;
+}
+.link ul li:first-child{
+    margin-bottom: 20px;
+}
+.link ul li>a:hover{
+    color: #ff4a00;
+}
+.link ul:not(:first-child){
+    margin: 50px 0 0 120px;
+}
+/*----------------------------footer----------------------------------------*/
+.footer{
+    background: #666666;
+    height: 44px;
+}
+.footer p{
+    text-align: center;
+    line-height: 44px;
+}
+/*----------------------------loginInterface----------------------------------------*/
+.login{
+    width: 0px;
+    /*width: 560px;*/
+    height: 460px;
+    position: fixed;
+    z-index: 9999;
+    left: 30%;
+    top: 20%;
+    display: none;
+}
+.login .login-l{
+    width: 500px;
+    height: 460px;
+    position: relative;
+    float: left;
+    background: #ffffff;
+}
+.login .login-l a:hover{
+    text-decoration: none;
+}
+.login-l .login-l-top{
+    overflow: hidden;
+    width: 464px;
+    border-bottom: 1px dashed #444444;
+    padding: 0 0 20px 0;
+    margin: 0 auto;
+}
+.login-l .login-l-top p{
+    line-height: 40px;
+}
+.login-l .login-l-top a{
+    float: left;
+    width: 131px;
+    height: 43px;
+    padding: 0 0 0 45px;
+    line-height: 43px;
+    color: #ffffff;
+}
+.login-l .login-l-top .QQ {
+    background: url("../img/qqlogin.gif");
+}
+.login-l .login-l-top .sina{
+    background: url("../img/weibologin.gif");
+    margin: 0 15px;
+}
+.login-l .login-l-top .wechat{
+    background: url("../img/wechatlogin.gif");
+}
+.login-l .login-l-bottom{
+    width: 464px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+.login-l .login-l-bottom .useEmail{
+    line-height: 40px;
+}
+.login-l .login-l-bottom .loginEmail,.login-l .login-l-bottom .password{
+    border: 1px solid #bcbcbc;
+    overflow: hidden;
+}
+.login-l .login-l-bottom .loginEmail span,.login-l .login-l-bottom .password span{
+    float: left;
+    width: 51px;
+    height: 38px;
+    border-right: 1px dashed #bcbcbc;
+}
+.login-l .login-l-bottom .loginEmail>input,.login-l .login-l-bottom .password>input{
+    float: left;
+    border: none;
+    width: 410px;
+    line-height: 38px;
+    padding: 0 0 0 20px;
+}
+.login-l .login-l-bottom .loginEmail span{
+    background: url("../img/icon1.gif") no-repeat center center;
+}
+.login-l-bottom .password{
+    margin: 20px 0;
+}
+.login-l-bottom .password span{
+    background: url("../img/icon2.gif") no-repeat center center;
+}
+.login-l .login-l-bottom .loginClick{
+    float: left;
+    width: 132px;
+    height: 50px;
+    background: #ff4a00;
+    color: #ffffff;
+    text-align: center;
+    line-height: 50px;
+    margin: 10px 10px 0 0;
+}
+.login-l .login-l-bottom .forgetPWD{
+    float: left;
+    width: 200px;
+    margin: 10px 0;
+}
+.login-l .login-l-bottom .forgetPWD a{
+    color: #ff4a00;
+}
+.login-l .login-l-bottom .registerNow{
+    float: left;
+    width: 200px;
+}
+.login-l .login-l-bottom .registerNow a{
+    color: #ff4a00;
+}
+.login .loginClose{
+    float: left;
+    width: 60px;
+    height: 60px;
+    background: url("../img/close.gif");
+}
+/*----------------------------registerInterface----------------------------------------*/
+.register{
+    width: 0px;
+    /*width: 560px;*/
+    height: 300px;
+    position: fixed;
+    z-index: 9999;
+    left: 30%;
+    top: 20%;
+    display: none;
+}
+.register .register-l{
+    width: 500px;
+    height: 300px;
+    position: relative;
+    float: left;
+    background: #ffffff;
+}
+.register p{
+    line-height: 80px;
+}
+.register .register-l .registerBox{
+    width: 464px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+.register .registerEmail,.register .registerPassword {
+    border: 1px solid #bcbcbc;
+    overflow: hidden;
+}
+.register .registerEmail span,.register .registerPassword span{
+    float: left;
+    width: 51px;
+    height: 38px;
+    border-right: 1px dashed #bcbcbc;
+}
+.register .registerEmail>input,.register .registerPassword>input{
+    float: left;
+    border: none;
+    width: 410px;
+    line-height: 38px;
+    padding: 0 0 0 20px;
+}
+.register .registerPassword{
+    margin: 20px 0;
+}
+.register .registerEmail span{
+    background: url("../img/icon1.gif") no-repeat center center;
+}
+.register .registerPassword span{
+    background: url("../img/icon2.gif") no-repeat center center;
+}
+.register .registerClick{
+    float: left;
+    width: 132px;
+    height: 50px;
+    background: #ff4a00;
+    color: #ffffff;
+    text-align: center;
+    line-height: 50px;
+    margin: 10px 10px 0 0;
+}
+.register .loginNow{
+    float: left;
+    margin: 20px 0 0 20px;
+    width: 200px;
+}
+.register .loginNow a{
+    color: #ff4a00;
+}
+.register .registerClose{
+    float: left;
+    width: 60px;
+    height: 60px;
+    background: url("../img/close.gif");
+}
+/*----------------------------bg----------------------------------------*/
+.bg{
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 9998;
+    background: #333;
+    opacity: .4;
+    display: none;
+}
+/*--------------------------backToTop-------------------------------*/
+.backToTop{
+    width: 36px;
+    height: 36px;
+    position: fixed;
+    bottom:30px;
+    right: 20px;
+    cursor: pointer;
+    display: none;
+    text-align: center;
+    line-height: 36px;
+    background: #9d9d9d;
+    color: #ffffff;
+    font-weight: 700;
+}
+.backToTop:hover{
+    background: red;
+}
