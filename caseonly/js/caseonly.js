@@ -6,6 +6,8 @@ $(function() {
     var $flag;
     var pageIndex;//商品列表页的页签
     var nowPageIndex=1;//当前所在的页签
+    var userEmail;
+    var password;//登录注册 输入的 邮箱和密码
     $(".banner>ul>li:first").css("background","#ee910d");
     start();//开始轮播
     clickPageIndex();//点击数字页签是的函数
@@ -29,6 +31,8 @@ $(function() {
     clickCategory();//点击 点击 手机壳的系列或者手机机型 进行选中效果的显示
     clickType();
     backToTop();//回到顶部
+    checkLogin();//点击登录按钮
+    checkRegister();//点击注册按钮
     function start(){
         $flag=setInterval(function () {
             $pageIndex++;
@@ -251,9 +255,30 @@ $(function() {
         });
     }
     function detailBigPicHover(){
-        $(".detail-top .bigPic img").on("mousemove", function (event) {
-           $(".detail-top .showBigPic").css("display","block");
-            $(".detail-top .showBigPic img").attr("src",$(this).attr("src"));
+        $(".detail-top .bigPic").on("mouseenter",function(){
+            $(".detail-top .bigPic span").css({"display":"block"});
+        });
+        $(".detail-top .bigPic .maskLayer").on("mousemove",function(event){
+            $(".detail-top .showBigPic").css("display","block");
+            $(".detail-top .showBigPic img").attr("src",$(this).parent().children(0).attr("src"));
+            if(event.offsetX<50){
+                $(".detail-top .bigPic span").css({"left":"0px"});
+            }
+            else if(event.offsetX>350){
+                $(".detail-top .bigPic span").css({"left":"300px"});
+            }
+            else{
+                $(".detail-top .bigPic span").css({"left":(event.offsetX-50)+"px"});
+            }
+            if(event.offsetY<50){
+                $(".detail-top .bigPic span").css({"top":"0px"});
+            }
+            else if(event.offsetY>300){
+                $(".detail-top .bigPic span").css({"top":"250px"});
+            }
+            else{
+                $(".detail-top .bigPic span").css({"top":(event.offsetY-50)+"px"});
+            }
             if(event.offsetX>240){
                 $(".detail-top .showBigPic img").css("left",-160+"px");
             }
@@ -266,6 +291,10 @@ $(function() {
             else{
                 $(".detail-top .showBigPic img").css("top",-event.offsetY+100+"px");
             }
+        });
+        $(".detail-top .bigPic .maskLayer").on("mouseleave",function(){
+            $(".detail-top .bigPic span").css({"display":"none"});
+            $(".detail-top .showBigPic").css("display","none");
         });
     }
     function detailBigPicLeave(){
@@ -430,7 +459,7 @@ $(function() {
     function dealData(param){
         for(var i=0;i<param.length;i++){
             var arrData=[];
-            arrData=param[i].Data.split("&");
+            arrData=param[i].Data.split(";");
             var $li= $("<li><a href=\"detail.html?id="+param[i].Id+"\"><img  src=\""+arrData[0]+"\"/></a><div class=\"tips\"><img src=\""+arrData[4]+
                 "\"/><span class=\"lookThrough\">"+arrData[5]+"</span><img src=\""+arrData[6]+"\"/><span class=\"collect\">"+
                 arrData[7]+"</span></div><p class=\"name\">"+arrData[8]+"</p><p class=\"price\">"+arrData[9]+
@@ -481,4 +510,105 @@ $(function() {
            $("body,html").animate({scrollTop:0},600);
         });
     }
+    function checkLogin(){
+        $(".login .loginClick").on("click",function(){
+            userEmail=$(".login .loginEmail input").val();
+            password=$(".login .password input").val();
+            if(userEmail&&password){
+                $.ajax({
+                    url:"http://localhost:8080/user/loginGet",
+                    data:{
+                        "name":userEmail,
+                        "password":password
+                    },
+                    success:function(data){
+                        if(data==1){
+                            alert("登陆成功！");
+                            $(".bg").css("display","none");
+                            $(".register").animate({"width":"0px"},500, function () {
+                                $(".register").css("display","none");
+                            });
+                        }else{
+                            alert("邮箱或密码错误！");
+                        }
+                    }
+                })
+            }else{
+                alert("邮箱和密码不能为空！");
+            }
+        });
+    }
+    function checkRegister(){
+        $(".register .registerClick").on("click",function(){
+            userEmail=$(".register .registerEmail input").val();
+            password=$(".register .registerPassword input").val();
+            if(userEmail&&password){
+                $.ajax({
+                    url:"http://localhost:8080/user/registerGet",
+                    data:{
+                        "name":userEmail,
+                        "password":password
+                    },
+                    success:function(data){
+                        if(data==1){
+                            alert("用户已存在！");
+                        }else{
+                            alert("注册成功！");
+                            $(".bg").css("display","none");
+                            $(".register").animate({"width":"0px"},500, function () {
+                                $(".register").css("display","none");
+                            });
+                        }
+                    }
+                })
+            }
+            else{
+                alert("邮箱和密码不能为空！");
+            }
+        });
+    }
+    // 根据姓名返回 密码
+    // function getPassword(name){
+    //     var LoginPassword;
+    //     var strLogin=Cookie.getCookie("logincookie");
+    //     var arrLogin=strLogin.split("||");
+    //     var arrItem;
+    //     for(var i=0;i<arrLogin.length;i++){
+    //         arrItem=arrLogin[i].split("&&");
+    //         if(arrItem[0]==name){
+    //             LoginPassword=arrItem[1];
+    //             return LoginPassword;
+    //         }
+    //     }
+    //     return LoginPassword;
+    // };
+    // //创建 cookie
+    // function setLoginCookie(name,value,days){
+    //     if(!Cookie.getCookie(name)){//如果名字为 name 的cookie不存在 则创建该cookie
+    //         //形如：logincookie=name1&&lisi||name2&&zhangsan-
+    //         Cookie.setCookie(name,value,days);
+    //         alert("注册成功");
+    //         $(".bg").css("display","none");
+    //         $(".register").animate({"width":"0px"},500, function () {
+    //             $(".register").css("display","none");
+    //         });
+    //         return 1;
+    //     }
+    //     else{//若已经存在了 则在 名称为name的cookie 值后面继续添加内容
+    //         var oldLoginStr=Cookie.getCookie(name);
+    //         var arrOldLogin=oldLoginStr.split("||");
+    //         var arrItem;
+    //         for(var i=0;i<arrOldLogin.length;i++){
+    //           arrItem=arrOldLogin[i].split("&&");
+    //             if(arrItem[0]==userEmail){
+    //                 alert("用户已存在");
+    //                 return -1;
+    //             }
+    //         };
+    //         var newLoginStr=oldLoginStr+"||"+value;
+    //         Cookie.setCookie(name,newLoginStr,days);
+    //         alert("注册成功")
+    //         return 1;
+    //     }
+    // };
 });

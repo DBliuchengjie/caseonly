@@ -24,9 +24,9 @@ $.ajax({
 });
 function dealData(param){
     var arrData=[];
-    arrData=param.Data.split("&");
+    arrData=param.Data.split(";");
     $("<div class=\"left\"><div class=\"bigPic\"><img src=\""+arrData[0]+
-        "\"/></div><div class=\"smallPic\"><img class=\"p1\" src=\""+arrData[0]
+        "\"/><span class=\"smallTag\"></span><i class=\"maskLayer\"></i></div><div class=\"smallPic\"><img class=\"p1\" src=\""+arrData[0]
         +"\"/><img class=\"p2\" src=\""+arrData[1]+
         "\"/><img class=\"p3\" src=\""+arrData[2]+
         "\"/><img class=\"p4\" src=\""+arrData[3]+

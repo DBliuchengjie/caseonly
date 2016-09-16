@@ -57,7 +57,7 @@ $(function () {
           dataType:"json",
           success:function(data){
             if(data!=null){
-              var arrData=data.Data.split("&");
+              var arrData=data.Data.split(";");
               $("<tr><td>1</td><td>"+proId+"</td><td>"+arrData[9]+"</td><td>"+arrData[5]+"</td><td>"+arrData[7]+"</td><td>"+arrData[0]+
               "</td><td><button type=\"button\" class=\"btn change\">修改</button><button "+
               "type=\"button\" class=\"btn remove\">删除</button></td></tr>").appendTo(".center .right table");
@@ -77,7 +77,7 @@ $(function () {
           success:function(data){
             var nowPage=1;
             for(var i=0;i<data.length;i++){
-              var arrData=data[i].Data.split("&");
+              var arrData=data[i].Data.split(";");
               $("<tr><td>"+(i+1)+"</td><td>"+data[i].Id+"</td><td>"+arrData[9]+"</td><td>"+arrData[5]+"</td><td>"+arrData[7]+"</td><td>"+arrData[0]+
               "</td><td><button type=\"button\" class=\"btn change\">修改</button><button "+
               "type=\"button\" class=\"btn remove\">删除</button></td></tr>").appendTo(".center .right table");
@@ -125,7 +125,7 @@ $(function () {
                 dataType:"json",
                 success:function(data){
                   for(var i=0;i<data.length;i++){
-                    var arrData=data[i].Data.split("&");
+                    var arrData=data[i].Data.split(";");
                     $("<tr><td>"+(i+1)+"</td><td>"+data[i].Id+"</td><td>"+arrData[9]+"</td><td>"+arrData[5]+"</td><td>"+arrData[7]+"</td><td>"+arrData[0]+
                     "</td><td><button type=\"button\" class=\"btn change\">修改</button><button "+
                     "type=\"button\" class=\"btn remove\">删除</button></td></tr>").appendTo(".center .right table");
@@ -145,7 +145,7 @@ $(function () {
                   dataType:"json",
                   success:function(data){
                     for(var i=0;i<data.length;i++){
-                      var arrData=data[i].Data.split("&");
+                      var arrData=data[i].Data.split(";");
                       $("<tr><td>"+(i+1)+"</td><td>"+data[i].Id+"</td><td>"+arrData[9]+"</td><td>"+arrData[5]+"</td><td>"+arrData[7]+"</td><td>"+arrData[0]+
                       "</td><td><button type=\"button\" class=\"btn change\">修改</button><button "+
                       "type=\"button\" class=\"btn remove\">删除</button></td></tr>").appendTo(".center .right table");
@@ -169,7 +169,7 @@ $(function () {
                   dataType:"json",
                   success:function(data){
                     for(var i=0;i<data.length;i++){
-                      var arrData=data[i].Data.split("&");
+                      var arrData=data[i].Data.split(";");
                       $("<tr><td>"+(i+1)+"</td><td>"+data[i].Id+"</td><td>"+arrData[9]+"</td><td>"+arrData[5]+"</td><td>"+arrData[7]+"</td><td>"+arrData[0]+
                       "</td><td><button type=\"button\" class=\"btn change\">修改</button><button "+
                       "type=\"button\" class=\"btn remove\">删除</button></td></tr>").appendTo(".center .right table");
@@ -193,5 +193,44 @@ $(function () {
     });
     $(".center .left .changeById").on("click",function(){
       $(".center .right").empty();
+      $("<form class=\"form-horizontal\" role=\"form\">"+
+        "<div class=\"form-group\"><h3 class=\"col-sm-offset-4 col-sm-2\">修改商品界面</h3></div><div class=\"form-group\">"+
+        "<label for=\"id\" class=\"col-sm-offset-2 col-sm-2 control-label\">商品Id：</label>"+
+        "<div class=\"col-sm-4\"><input type=\"text\" class=\"form-control\" id=\"id\" placeholder=\"请输入要修改的商品Id\"></div></div>"+
+        "<div class=\"form-group\"><label for=\"name\" class=\"col-sm-offset-2 col-sm-2 control-label\">商品名称：</label>"+
+        "<div class=\"col-sm-4\"><input type=\"text\" class=\"form-control\" id=\"name\" placeholder=\"请输入商品的名称\"></div></div>"+
+        "<div class=\"form-group\"><label for=\"price\" class=\"col-sm-offset-2 col-sm-2 control-label\">价格：</label>"+
+        "<div class=\"col-sm-4\"><input type=\"text\" class=\"form-control\" id=\"price\" placeholder=\"请输入商品的价格\"></div></div>"+
+        "<div class=\"form-group\"><label for=\"path\" class=\"col-sm-offset-2 col-sm-2 control-label\">图片路径：</label>"+
+        "<div class=\"col-sm-4\"><input type=\"text\" class=\"form-control\" id=\"path\" placeholder=\"请输入商品图片的路径\"></div></div>"+
+        "<div class=\"form-group\"><div class=\"col-sm-offset-2 col-sm-10\"><button type=\"button\" class=\"col-sm-offset-3 btn btn-default commitChange\">"+
+        "提交修改</button></div></div></form>").appendTo(".center .right");
+        $(".center .right form .commitChange").on("click",function(){
+          if($(".center .right #id").val()&&$(".center .right #name").val()&&$(".center .right #price").val()&&$(".center .right #path").val()){
+            var changeId=parseInt($(".center .right #id").val());
+            var changeName=$(".center .right #name").val();
+            var changePrice=$(".center .right #price").val();
+            var changePath=$(".center .right #path").val();
+            $.ajax({
+              url:"http://localhost:8080/product/GetProductById_get?id="+changeId,
+              dataType:"json",
+              success:function(data){
+                if(data!=null){
+                  $.ajax({
+                    url:"http://localhost:8080/product/CreateUpdateProduct_get?id="+changeId+"&datajson="+changePath+";"+
+                    "img/show1.jpg;img/show2.jpg;img/show3.jpg;img/eye.gif;2211;img/heart.gif;567;"+changeName+";"+"￥"+changePrice+".00;加入购物车;img/heart2.gif;收藏",
+                    success:function(){
+                      alert("修改成功！");
+                    }
+                  })
+                }else{
+                  alert("没有此商品！")
+                }
+              }
+            })
+          }else{
+            alert("请把信息填写完整，不能空填");
+          }
+        });
     });
 });
